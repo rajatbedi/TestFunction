@@ -1,23 +1,16 @@
 FROM node:20
 
-# Install Java (for Firebase Emulator)
 RUN apt-get update && apt-get install -y default-jre
 
-# Set working directory
+# Create app folder
 WORKDIR /app
 
-# Copy project
+# Copy everything
 COPY . .
 
-# Go into functions directory and install dependencies
+# Move into functions directory and install
 WORKDIR /app/functions
 RUN npm install
 
-# Install Firebase CLI
-RUN npm install -g firebase-tools
-
-# Expose the emulator port
-EXPOSE 5001
-
-# Start the emulator
-CMD ["npx","firebase", "emulators:start", "--only", "functions"]
+# Start emulator
+CMD ["npm", "run", "shell"]
