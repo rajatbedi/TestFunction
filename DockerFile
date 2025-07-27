@@ -1,0 +1,15 @@
+From node:18
+
+RUN apt-get update && apt-get install -y default-are
+
+WORKDIR/APP
+
+COPY..
+
+RUN nom install -g firebase-tools
+
+RUN nom install
+
+EXPOSE 5001 8080 4000
+
+cmd["npm", "run", "start"]
